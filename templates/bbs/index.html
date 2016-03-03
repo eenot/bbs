@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% load gravatar %}
+{% load cache %}
+
+{% block content %}
+
+<div class="panel panel-default">
+  <div class="panel-heading">Cocoa开发者的聚集地</div>
+  <div class="panel-body tableview">
+    {% cache 30 sidebar index_topics %}
+    {% for topic in topic_list %}
+        {% include "bbs/topic_cell.html" %}
+    {% endfor %}
+    {% endcache %}
+  </div>
+  <div class="panel-body">
+    <ul class="pager">
+      <li class="next"><a href="{% url 'bbs:recent' %}">更多话题</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">节点导航</div>
+    <div class="panel-body node-panel">  
+        <ul>
+        {% for item in nodes %}
+          <li>
+            <div class="row text-muted node-line">
+                <div class="col-xs-4 col-sm-3 col-md-2 category-name">{{item.category_name}}</div>
+                <div class="col-xs-8 col-sm-9 col-md-10">
+                  {% for node in item.category_nodes %}
+                        <a class="node-name" href="/node/{{node.slug}}">{{ node.name }}</a>
+                    {% endfor %}  
+                </div>
+              </div>
+          </li>
+          {% endfor %}
+      </ul>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block sidebar %}
+
+<div class="panel panel-default hidden-xs">
+  <div class="panel-heading">今日热议</div>
+  <div class="panel-body tableview">
+      {% for topic in hot_topics %}
+        <div class="cell">
+        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+            <tbody><tr>
+                <td width="24" valign="middle" align="center">
+                    <a href="{% url 'user:user' topic.author.id %}"><img src="{% gravatar topic.author 48 %}" class="avatar" border="0" align="default" style="max-width: 24px; max-height: 24px;"></a>
+                </td>
+                <td width="10"></td>
+                <td width="auto" valign="middle">
+                  <span>
+                    <a href="{% url 'bbs:topic' topic.id %}">{{topic.title}}</a>
+                  </span>
+                </td>
+            </tr>
+        </tbody></table>
+        </div>
+      {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

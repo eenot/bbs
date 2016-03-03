@@ -1,0 +1,239 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+
+html,
+body {
+  height: 100%;
+  background-color: #E0E0E0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+img{
+  max-width: 100%;
+}
+
+
+/* Set the fixed height of the footer here */
+#footer {
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+.center{
+  text-align: center;
+}
+.badge-info{
+  background-color: #AAB0C6;
+  color: white;
+}
+.badge-info a{
+  background-color: #AAB0C6;
+  color: white;
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+#wrap > .container {
+  padding: 0px 15px 0;
+}
+#footer .container .text-muted {
+  margin: 20px 0;
+}
+
+/*----*/
+
+.tableview {
+  margin: -15px;
+}
+
+.tableview .cell{
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+.tableview .cell:hover{background:#f6f6f6}
+.tableview .cell .headimage{
+  width: 48px;
+  height: 48px;
+  margin-left: 5px;
+  margin-top: -3px;
+}
+.tableview .cell .detail{
+  padding-left: 65px;
+}
+.tableview .cell .detail .title{
+  margin-top: 5px;
+  font-size: 16px;
+}
+.tableview .cell .detail .meta{
+  margin-top: 5px;
+  font-size: 12px;
+  color: #ccc;
+}
+.tableview .cell .detail .meta a{
+  color: #778087;
+}
+
+.breadcrumb{
+  margin: 0px;
+  padding: 0px;
+}
+.breadcrumb .new-btn{
+  line-height: 12px;
+}
+
+.topic_breadcrumb{
+  margin-left: 10px;
+  margin-top: 10px;
+  color: #999;
+}
+.topic_breadcrumb a{
+  color: #999;
+}
+.pager{
+  margin: 0px;
+}
+
+/* --- Node --- */
+.node{
+  font-size:12px;
+  line-height: 10px;
+  display: inline-block;  
+  color: #999;
+  padding: 2px 4px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  text-decoration: none;
+  background: #f5f5f5;
+}
+
+.node-panel ul{
+  list-style: none;
+}
+
+.node-panel .node-line{
+  border-bottom: 1px solid #eee;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+}
+
+.node-panel .node-name{
+  margin-left: 10px;
+}
+
+/* --- Subject Detail --- */
+.topic-header{
+  padding-bottom: 3px;
+  border-bottom: 1px solid #eee;
+}
+.topic-header .topic-title{
+  margin-top:10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+.topic-header .topic-meta{
+  margin-top: 5px;
+  margin-left: 8px;
+  font-size: 12px;
+}
+.topic-header .topic-meta a{
+  color: #999;
+}
+
+.topic-header .topic-headimg{
+  margin-right: 10px;
+}
+.topic-footer .fav-btn{
+  line-height: 8px;
+}
+
+
+/* --- reply --- */
+.comment-tableview{
+  padding: 0px;
+}
+
+.comment-tableview .comment{
+  padding: 8px 10px;
+  border-bottom: 1px solid #eee;
+}
+.comment-tableview .light{
+  background-color: #F7F2FC;
+}
+.comment-tableview .comment .name a{
+  font-weight: bold;
+  color: #888;
+}
+.comment-tableview .comment .headimage{
+  margin-left: 10px;
+  width: 48px;
+  height: 48px;
+}
+.comment-tableview .comment .content{
+  margin-top: 5px;
+}
+.comment-tableview .comment .content .at_user{
+  color: #000;
+  font-weight: bold;
+}
+.comment-tableview .comment .datetime{
+  margin-left: 10px;
+  font-size: 12px;
+}
+.comment-tableview .comment .cell{
+  height: auto;
+  margin: 10px;
+}
+
+.reply .text{
+  margin:10px;
+}
+.reply .submit-btn{
+  margin-top: 10px;
+}
+
+/* --- right ---*/
+
+.userinfo .username{
+  font-size: 25px;
+}
+.userinfo .td-line{
+  border-right: 1px solid #ccc;
+}
+.userinfo .notice{
+  margin-top: 10px;
+  font-size: 13px;
+}
+.userinfo .notice  a{
+  color: #999;
+}
+
+.userpage .username{
+  font-size: 25px;
+}
+
+.notice-cell{
+  padding: 10px;
+  padding-top: 10px;
+  border-bottom: #eee solid 1px;
+}
+
+/* setting */
+.headimage_setting .current_headimage{
+  /*text-align: center;*/
+}
+.headimage_setting .upload_form{
+  /*text-align: center;*/
+}
+.headimage_setting .file_input{
+  padding-top: 3px;
+}
+
+.au-user{
+  text-align: center;;
+  margin-bottom:15px;
+  height:68px;
+}

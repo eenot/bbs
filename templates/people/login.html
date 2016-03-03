@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}登陆 - {% endblock %}
+
+{% load humanize %}
+
+{% block content %}
+            <div class="panel panel-default">
+              <div class="panel-heading">登陆</div>
+              <div class="panel-body">
+                    <form class="form-horizontal" action="{% url 'user:login' %}" method='POST'>
+                      {% csrf_token %}
+                    {% for field in form %}
+                    <div class="form-group">
+                        <label for="{{ field.id }}" class="col-sm-3 control-label">{{ field.label }}：</label>
+                        <div class="col-sm-5">
+                          <input type="{% if forloop.counter == 1 %}text{% elif forloop.counter == 2 %}password{% endif %}" class="form-control" name="{{ field.html_name }}" value="{{ field.value |default_if_none:""}}">
+                          {% if field.help_text %}
+                            <span class="help-block">{{field.help_text}}</span>
+                          {% endif %}
+                        </div>
+                        {% if field.errors %}
+                        <label>
+                          <ul class="list-inline">
+                          {% for item in field.errors %}
+                              <li><p class="form-control-static text-danger">{{ item }}</p></li>
+                          {% endfor %}
+                          </ul>
+                        </label>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-10">
+                            <div class="checkbox">
+                                <label>
+                                <input type="checkbox" name="auto" > 记住我 
+                                </label>
+                                <a style="margin-left:50px;" href="{% url 'user:find_pass' %}">忘记密码</a>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="col-sm-offset-3 col-sm-10">
+                            <button type="submit" class="btn btn-default">登陆</button>
+                          </div>
+                        </div>
+
+                    </form>
+                </div>
+              </div>
+{% endblock %}

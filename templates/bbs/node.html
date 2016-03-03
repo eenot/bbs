@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}{{node.name}} -   
+  {% if topic_list.paginator %}
+      (第 {{ topic_list.number }} 页)
+  {% endif %}  - 
+{% endblock %}
+
+{% load humanize %}
+{% load gravatar %}
+
+{% block content %}
+              <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li>{{node.name}}</li>
+                          <a href="{% url 'bbs:new' node.slug %}" class="btn btn-sm btn-success pull-right new-btn">新主题</a>
+                      </ol>
+                  </div>
+
+                  <div class="panel-body tableview">
+                    {% for topic in topic_list %}
+                      {% include "bbs/topic_cell.html" %}
+                    {% endfor %}
+                  </div>
+                  <div class="panel-footer">
+                    <ul class="pager text-muted">
+
+                      {% if topic_list.has_previous %}
+                        <li class="previous">
+                          <a href="?page={{ topic_list.previous_page_number }}">&larr;上一页</a>
+                        </li>
+                      {% else %}
+                        <li class="previous disabled">
+                          <a href="#">&larr;上一页</a>
+                        </li>
+                      {% endif %}
+
+                      <li>{{ topic_list.number }}/{{ topic_list.paginator.num_pages }}</li>
+
+
+                      {% if topic_list.has_next %}
+                        <li class="next">
+                          <a href="?page={{ topic_list.next_page_number }}">下一页 &rarr;</a>
+                        </li>
+                      {% else %}
+                        <li class="next disabled">
+                          <a href="#">下一页 &rarr;</a>
+                        </li>
+                      {% endif %}
+                    </ul>
+                  </div>
+              </div>
+{% endblock %}
